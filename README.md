@@ -71,6 +71,11 @@ CentOSではたとえば、以下のようにしてインストールできま�
 % yum install -y gflags gflags-devel
 ```
 
+## Docker
+string-splitterとword2vecとword2vec-calcを含むDockerファイルです。
+
+https://github.com/naoa/docker-word2vec
+
 ## Author
 
 Naoya Murakami naoya@createfield.com
