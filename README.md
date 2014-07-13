@@ -15,8 +15,7 @@ word2vecで学習したモデルでベクトルの四則演算(+ - / *)を行い
 単語1個の場合はdistance相当、単語2 - 単語1 + 単語3とするとword-analogy相当になります。たぶん100個ぐらいつなげられます。
 
 ```bash
-% echo "データベース + 車" | ./word2vec-calc --file_path jpa_abst5.bin --o
-utput 1
+% echo "データベース + 車" | ./word2vec-calc --file_path jpa_abst5.bin --output 1
 >
 Word: データベース  Position in vocabulary: 1228
 
