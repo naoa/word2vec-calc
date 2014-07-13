@@ -59,7 +59,7 @@ UTF8の文字コードのテキストのみ対応しています。
 ```
 
 ## 依存関係
-このプログラムでは、<code>ICU</code>、<code>gflags</code>のライブラリを利用しています。
+このプログラムでは、<code>RE2</code>、<code>ICU</code>、<code>gflags</code>のライブラリを利用しています。
 
 CentOSではたとえば、以下のようにしてインストールできます。
 
