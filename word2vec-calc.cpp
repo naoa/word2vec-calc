@@ -160,6 +160,7 @@ calc(string str, int output, int offset, int limit, double threshold,
   if(!no_normalize){
     str = normalize(str);
   }
+  re2::RE2::GlobalReplace(&str, "　", " ");
 
   vector<string> result_array;
   result_array = split(str, ' ');
