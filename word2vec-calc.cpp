@@ -251,7 +251,6 @@ calc(string str, int output, int offset, int limit, double threshold,
   for (a = 0; a < N; a++) bestd[a] = 0;
   for (a = 0; a < N; a++) bestw[a][0] = 0;
   for (c = 0; c < words; c++) {
-    /*
     unsigned int equal = 0;
     for (b = 0; b < cn; b++) {
       if (c == bi[b]) {
@@ -260,7 +259,6 @@ calc(string str, int output, int offset, int limit, double threshold,
       }
     }
     if (equal) continue;
-    */
     a = 0;
     for (b = 0; b < cn; b++) if (bi[b] == c) a = 1;
     if (a == 1) continue;
