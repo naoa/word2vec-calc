@@ -176,12 +176,6 @@ calc(string str, int output, int offset, int limit, double threshold,
     else if(result_array[i] == "-"){
       op[op_row] = '-';
       op_row++;
-    } else if(result_array[i] == "*"){
-      op[op_row] = '*';
-      op_row++;
-    } else if(result_array[i] == "/"){
-      op[op_row] = '/';
-      op_row++;
     } else {
       result += result_array[i];
       if ( i < result_array.size() - 1) {
@@ -234,10 +228,6 @@ calc(string str, int output, int offset, int limit, double threshold,
       for (b = 0; b < cn; b++) {
         if(op[b] == '-') {
           vec[a] -= M[a + bi[b] * size];
-        } else if(op[b] == '/') {
-          vec[a] /= M[a + bi[b] * size];
-        } else if(op[b] == '*') {
-          vec[a] *= M[a + bi[b] * size];
         } else {
           vec[a] += M[a + bi[b] * size];
         }
