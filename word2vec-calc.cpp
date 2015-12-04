@@ -242,14 +242,6 @@ calc(string str, int output, int offset, int limit, double threshold,
   for (a = 0; a < N; a++) bestd[a] = 0;
   for (a = 0; a < N; a++) bestw[a][0] = 0;
   for (c = 0; c < words; c++) {
-    unsigned int equal = 0;
-    for (b = 0; b < cn; b++) {
-      if (c == bi[b]) {
-        equal = 1;
-        break;
-      }
-    }
-    if (equal) continue;
     a = 0;
     for (b = 0; b < cn; b++) if (bi[b] == c) a = 1;
     if (a == 1) continue;
@@ -257,6 +249,16 @@ calc(string str, int output, int offset, int limit, double threshold,
     for (a = 0; a < size; a++) dist += vec[a] * M[a + c * size];
     for (a = 0; a < N; a++) {
       if (dist > bestd[a]) {
+        if (threshold > 0 && &load_vocab[c * max_w] < threshold) {
+          break;
+        }
+        if (term_filter != NULL) {
+          string s = &load_vocab[c * max_w];
+          string t = term_filter;
+          if ( RE2::FullMatch(s, t) ) {
+            break;
+          }
+        }
         for (d = N - 1; d > a; d--) {
           bestd[d] = bestd[d - 1];
           strcpy(bestw[d], bestw[d - 1]);
@@ -264,21 +266,6 @@ calc(string str, int output, int offset, int limit, double threshold,
         bestd[a] = dist;
         strcpy(bestw[a], &vocab[c * max_w]);
         break;
-      }
-    }
-  }
-
-  if (threshold > 0 || term_filter != NULL) {
-    for (a = 0; a < N; a++) {
-      if (threshold > 0 && bestd[a] < threshold) {
-        bestd[a] = 0;
-      }
-      if (term_filter != NULL) {
-        string s = bestw[a];
-        string t = term_filter;
-        if ( RE2::FullMatch(s, t) ) {
-          bestd[a] = 0;
-        }
       }
     }
   }
