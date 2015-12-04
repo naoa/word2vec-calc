@@ -224,6 +224,7 @@ calc(string str, int output, int offset, int limit, double threshold,
       for (a = 0; a < size; a++) vec[a] += M[a + bi[b] * size];
     }
   } else {
+    for (a = 0; a < size; a++) vec[a] = 0;
     for (a = 0; a < size; a++) {
       for (b = 0; b < cn; b++) {
         if(op[b] == '-') {
@@ -249,7 +250,7 @@ calc(string str, int output, int offset, int limit, double threshold,
     for (a = 0; a < size; a++) dist += vec[a] * M[a + c * size];
     for (a = 0; a < N; a++) {
       if (dist > bestd[a]) {
-        if (threshold > 0 && &load_vocab[c * max_w] < threshold) {
+        if (threshold > 0 && dist < threshold) {
           break;
         }
         if (term_filter != NULL) {
