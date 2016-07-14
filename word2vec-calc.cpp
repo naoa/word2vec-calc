@@ -45,7 +45,7 @@
 
 #include <unicode/normlzr.h>
 #include <re2/re2.h>
-#include <google/gflags.h>
+#include <gflags/gflags.h>
 
 DEFINE_string(file_path, "", "Input binary file learned by word2vec");
 DEFINE_string(input, "", "Input expression string");
@@ -351,7 +351,7 @@ main(int argc, char **argv) {
   const char *file_name = "/var/lib/word2vec/learn.bin";
   string str;
 
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  gflags::ParseCommandLineFlags(&argc, &argv, true);
 
   if(FLAGS_h == true){
     printf(" --file_path : Input binary file learned by word2vec\n");
