@@ -254,7 +254,7 @@ calc(string str, int output, int offset, int limit, double threshold,
           break;
         }
         if (term_filter != NULL) {
-          string s = &load_vocab[c * max_w];
+          string s = &vocab[c * max_w];
           string t = term_filter;
           if ( RE2::FullMatch(s, t) ) {
             break;
